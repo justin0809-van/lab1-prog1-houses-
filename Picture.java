@@ -15,8 +15,9 @@ public class Picture
     private Square window;
     private Triangle roof;
     private Circle sun;
+    private Person person;
     private boolean drawn;
-
+    
     /**
      * Constructor for objects of class Picture
      */
@@ -26,6 +27,7 @@ public class Picture
         window = new Square();
         roof = new Triangle();  
         sun = new Circle();
+        person = new Person();
         drawn = false;
     }
 
@@ -57,8 +59,16 @@ public class Picture
             sun.changeSize(80);
             sun.makeVisible();
             drawn = true;
+            
+            person.changeColor("green");
+            person.makeVisible();
+            drawn = true;
         }
-    }
+    } public void sunset() {
+        sun.slowMoveVertical(300);
+        person.slowMoveHorizontal(-50);// then person walks 50 steps
+        drawn = true;
+    } 
 
     /**
      * Change this picture to black/white display
